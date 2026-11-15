@@ -1,0 +1,55 @@
+CLERION STORE — INICIO DEL PROYECTO
+=====================================
+
+QUÉ INCLUYE
+- index.html: catálogo público y ventana de inicio de sesión.
+- styles.css: diseño visual premium adaptable a celular.
+- app.js: conexión con Supabase, inicio de sesión y administración de productos.
+- supabase_setup.sql: tablas y permisos de seguridad.
+
+IMPORTANTE
+Esta es una base inicial, no una tienda publicada ni conectada todavía. Para que funcione el inicio de sesión y se guarden productos, debes crear y conectar un proyecto Supabase. No compartas tu contraseña ni la clave service_role con nadie. En el archivo app.js solo se usa la URL y la clave pública anon/publishable.
+
+PASO 1 — CREAR SUPABASE
+1. Entra a https://supabase.com/ y crea una cuenta/proyecto.
+2. Crea un proyecto llamado clerion-store.
+3. Guarda la contraseña de base de datos en un lugar seguro. No me la envíes.
+4. En Project Settings > API (o Connect), copia Project URL y la clave pública anon/publishable.
+5. En Authentication > Providers > Email, deja habilitado Email.
+6. Desactiva el registro público (Allow new users to sign up) cuando esté disponible. El usuario administrador se creará desde el panel de Supabase.
+
+PASO 2 — CREAR EL ADMINISTRADOR
+1. En Supabase, abre Authentication > Users.
+2. Pulsa Add user / Create new user.
+3. Escribe TU correo y crea una contraseña fuerte que solo tú conozcas.
+4. Confirma/verifica el usuario si Supabase te lo solicita.
+5. No compartas esa contraseña.
+
+PASO 3 — CONFIGURAR PERMISOS
+1. Abre el archivo supabase_setup.sql con un editor de texto.
+2. Busca todas las apariciones de TU_CORREO_ADMIN y reemplázalas por el mismo correo administrador que acabas de crear.
+3. En Supabase abre SQL Editor > New query.
+4. Pega todo el contenido del archivo SQL y pulsa Run.
+5. Si aparece un error, detente y comparte el mensaje de error (sin claves ni contraseñas).
+
+PASO 4 — CONECTAR LA PÁGINA
+1. Abre app.js con un editor de texto.
+2. Reemplaza PEGA_AQUI_TU_SUPABASE_URL por tu Project URL.
+3. Reemplaza PEGA_AQUI_TU_SUPABASE_ANON_KEY por tu clave pública anon/publishable.
+4. Reemplaza 57XXXXXXXXXX por tu WhatsApp con indicativo 57, sin +, espacios ni guiones.
+5. Guarda el archivo.
+
+PASO 5 — PROBAR
+Abre index.html en el navegador. El catálogo debería conectarse a Supabase.
+Pulsa ADMIN e inicia sesión con el correo y contraseña que creaste.
+Agrega un producto de prueba y comprueba que aparece en el catálogo.
+
+PUBLICAR
+Cuando esté probado, podemos desplegar la carpeta en Netlify o Cloudflare Pages para generar un enlace público. No publiques la carpeta antes de configurar las claves y probar los permisos.
+
+SEGURIDAD
+- Nunca pongas la clave service_role en app.js ni en ningún archivo público.
+- No compartas contraseñas, códigos de verificación ni claves privadas en el chat.
+- La clave anon/publishable está diseñada para estar en el navegador; la seguridad real depende de las políticas RLS incluidas en el SQL.
+- Este proyecto limita la administración al correo escrito en TU_CORREO_ADMIN. Usa el mismo correo en Supabase Auth.
+- El acceso no es un sistema de pagos ni checkout; es solo catálogo y administración.

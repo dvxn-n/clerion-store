@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#151513">
+  <title>CLERION STORE</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="wordmark" href="#">CLERION <span>STORE · COLOMBIA</span></a>
+    <nav><a href="#catalogo">Catálogo</a><a href="#contacto">Contacto</a><button id="admin-open" class="text-button">ADMIN</button></nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">CURATED STREETWEAR · 2026</p>
+        <h1>Style is<br><em>a statement.</em></h1>
+        <p class="hero-description">Una selección de prendas para encontrar tu propio estilo.</p>
+        <a class="button light-button" href="#catalogo">EXPLORAR COLECCIÓN</a>
+      </div>
+      <div class="hero-mark"><span>C.</span><small>CLERION / EST. 2026</small></div>
+    </section>
+
+    <section id="catalogo" class="catalog-section">
+      <div class="section-heading">
+        <div><p class="eyebrow dark">CLERION SELECTION</p><h2>Catálogo</h2></div>
+        <p id="product-count" class="muted">CARGANDO PRODUCTOS</p>
+      </div>
+      <div id="catalog-status" class="notice" aria-live="polite"></div>
+      <div id="product-grid" class="product-grid"></div>
+    </section>
+
+    <section id="contacto" class="contact-section">
+      <p class="eyebrow dark">¿ENCONTRASTE TU PRENDA?</p>
+      <h2>Hablemos.</h2>
+      <p>Escríbenos para consultar disponibilidad, tallas y entregas.</p>
+      <a id="whatsapp-link" class="button dark-button" href="#" target="_blank" rel="noopener">CONTACTAR POR WHATSAPP</a>
+    </section>
+  </main>
+
+  <footer><span>© 2026 CLERION STORE</span><span>COLOMBIA · ALL RIGHTS RESERVED</span></footer>
+
+  <div id="admin-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="admin-title">
+    <div class="modal-card">
+      <button id="close-admin" class="close-button" aria-label="Cerrar">×</button>
+      <div id="auth-view">
+        <p class="eyebrow dark">ÁREA PRIVADA</p>
+        <h2 id="admin-title">Administración</h2>
+        <p class="muted small">Inicia sesión para administrar el catálogo de Clerion.</p>
+        <form id="login-form" class="stack">
+          <label>Correo electrónico<input id="login-email" type="email" autocomplete="username" required placeholder="tu correo"></label>
+          <label>Contraseña<input id="login-password" type="password" autocomplete="current-password" required placeholder="Tu contraseña"></label>
+          <button class="button dark-button full" type="submit">INICIAR SESIÓN</button>
+        </form>
+        <p id="auth-message" class="form-message" aria-live="polite"></p>
+      </div>
+
+      <div id="dashboard-view" class="hidden">
+        <div class="dashboard-top">
+          <div><p class="eyebrow dark">CLERION ADMIN</p><h2>Inventario</h2></div>
+          <button id="logout-button" class="outline-button">CERRAR SESIÓN</button>
+        </div>
+        <div class="stats">
+          <div><strong id="stat-total">0</strong><span>Productos</span></div>
+          <div><strong id="stat-available">0</strong><span>Disponibles</span></div>
+          <div><strong id="stat-sold">0</strong><span>Agotados</span></div>
+        </div>
+        <div class="admin-actions">
+          <h3>Productos</h3>
+          <button id="new-product" class="button dark-button">+ AGREGAR PRODUCTO</button>
+        </div>
+        <div id="admin-product-list" class="admin-product-list"></div>
+        <form id="product-form" class="product-form hidden">
+          <input id="product-id" type="hidden">
+          <h3 id="form-title">Nuevo producto</h3>
+          <div class="form-grid">
+            <label>Nombre<input id="product-name" required maxlength="80" placeholder="Ej. Camisa Oversize"></label>
+            <label>Precio (COP)<input id="product-price" type="number" min="0" step="1000" required placeholder="95000"></label>
+            <label>Tallas<input id="product-sizes" maxlength="100" placeholder="S, M, L"></label>
+            <label>Estado<select id="product-status"><option value="available">Disponible</option><option value="sold">Agotado</option></select></label>
+          </div>
+          <label>Fotografía del producto<input id="product-image" type="file" accept="image/*"></label>
+          <p class="muted tiny">Usa una foto clara del producto. Se guardará en el almacenamiento de la tienda.</p>
+          <div class="form-buttons">
+            <button type="submit" class="button dark-button">GUARDAR PRODUCTO</button>
+            <button type="button" id="cancel-edit" class="outline-button">CANCELAR</button>
+          </div>
+          <p id="product-message" class="form-message" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
