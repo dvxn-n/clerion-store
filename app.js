@@ -1,7 +1,7 @@
 // CONFIGURACIÓN: pega aquí los datos de tu proyecto Supabase cuando lo creemos.
-const SUPABASE_URL = "https://sknxuruzkyhdmaqycype.supabase.co/rest/v1/";
+const SUPABASE_URL = "https://sknxuruzkyhdmaqycype.supabase.co";
 const SUPABASE_ANON_KEY = "sb_publishable_qDHinqY4soCILbO__348yw_rzqnj_gk";
-const WHATSAPP_NUMBER = "57XXXXXXXXXX"; // Indicativo 57, sin +, espacios ni guiones.
+const WHATSAPP_NUMBER = "573183119738"; // Indicativo 57, sin +, espacios ni guiones.
 
 const hasConfig = SUPABASE_URL.startsWith("https://") && !SUPABASE_ANON_KEY.startsWith("PEGA_");
 const db = hasConfig ? window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY) : null;
