@@ -107,7 +107,7 @@ footer{background:#171715;color:#bdbbb4;padding:26px 6vw;display:flex;justify-co
 .site-header nav{gap:13px;font-size:9px}
 .wordmark{font-size:19px}
 .hero{grid-template-columns:1fr;padding:55px 7vw;gap:28px}
-.hero-mark{height:190px;width:100%}
+.hero-mark{height:260px;width:100%;
 .hero-logo{font-size:55px}
 .catalog-section{padding:55px 5vw}
 .product-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 11px}
