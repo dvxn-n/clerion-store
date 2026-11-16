@@ -23,7 +23,7 @@ button,input,select{font:inherit}
 .hero-description{max-width:350px;color:#c3c1bb;font-size:13px;line-height:1.9;margin-bottom:26px}
 
 .hero-mark{height:360px;width:85%;justify-self:end;border:1px solid #55534e;position:relative;overflow:hidden;background:#242321}
-.hero-image{width:100%;height:100%;object-fit:cover;display:block}
+.hero-image{width:100%;height:100%;object-fit:contain;display:block}
 .hero-logo{position:absolute;top:15px;left:18px;font:italic 65px 'Playfair Display',Georgia,serif;color:white}
 .hero-mark small{position:absolute;bottom:20px;left:20px;color:#fff;letter-spacing:.35em;font-size:8px}
 
